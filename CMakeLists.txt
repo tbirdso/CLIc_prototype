@@ -13,7 +13,11 @@ if(NOT OpenCL_FOUND)
 endif()
 
 if(NOT Python3_FOUND)
-    find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+    find_package(Python3 COMPONENTS Interpreter Development)
+  if(NOT Python3_EXECUTABLE AND _Python3_EXECUTABLE) # workaround for cases where FindPython3 fails to set correctly
+    set(Python3_EXECUTABLE ${_Python3_EXECUTABLE} CACHE INTERNAL
+      "Path to the Python interpreter" FORCE)
+  endif()
 endif()
 
 # Library sources
