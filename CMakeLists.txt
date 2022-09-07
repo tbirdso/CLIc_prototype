@@ -13,6 +13,7 @@ if(NOT OpenCL_FOUND)
 endif()
 
 if(NOT Python3_FOUND)
+    message(STATUS "Python_EXECUTABLE ${PYTHON_EXECUTABLE} Python3_EXECUTABLE ${Python3_EXECUTABLE} PYTHON3_ROOT_DIR ${PYTHON3_ROOT_DIR} PYTHON_INCLUDE_DIR:PATH ${PYTHON_INCLUDE_DIR}")
     find_package(Python3 COMPONENTS Interpreter Development)
   if(NOT Python3_EXECUTABLE AND _Python3_EXECUTABLE) # workaround for cases where FindPython3 fails to set correctly
     set(Python3_EXECUTABLE ${_Python3_EXECUTABLE} CACHE INTERNAL
